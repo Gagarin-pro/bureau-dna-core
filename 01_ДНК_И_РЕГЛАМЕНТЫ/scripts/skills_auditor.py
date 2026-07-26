@@ -21,7 +21,6 @@ def scan_skills():
     home = os.path.expanduser("~")
     search_dirs = [
         os.path.join(home, ".gemini/config/plugins/"),
-        os.path.join(home, ".gemini/config/skills/"),
         os.path.join(home, ".gemini/antigravity/builtin/skills/"),
         os.path.join(home, "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/.agents/skills/")
     ]
@@ -59,8 +58,8 @@ def main():
         f.write("| :--- | :--- | :--- |\n")
         for s in skills:
             # Mask paths for clean visibility
-            clean_path = s["path"].replace(os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»", "[Workspace]")
-            clean_path = clean_path.replace(os.path.join(os.path.expanduser("~"), ".gemini/", "[Global]")
+            clean_path = s["path"].replace("/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»", "[Workspace]")
+            clean_path = clean_path.replace("/Users/tur/.gemini/", "[Global]")
             f.write(f"| **{s['name']}** | {s['description']} | `{clean_path}` |\n")
             
     print(f"[+] Картотека успешно обновлена: {output_path} (Найдено: {len(skills)} навыков)")

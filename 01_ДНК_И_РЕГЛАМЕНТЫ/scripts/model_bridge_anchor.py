@@ -27,7 +27,7 @@ MODEL_CALIBRATION_SPEC = {
 def generate_model_calibration_anchor(output_path: str = None) -> dict:
     """Генерирует якорный паспорт соосности ИИ-мотора."""
     if not output_path:
-        output_path = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/model_anchor.json"
+        output_path = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/model_anchor.json")
     
     try:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)

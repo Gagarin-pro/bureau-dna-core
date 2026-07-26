@@ -2,10 +2,10 @@ import urllib.request
 import json
 import os
 
-def fetch_github_skills(query="agentic skills OR mcp server OR multi-agent framework"):
+def fetch_github_skills(query="antigravity+topic:ai-agents"):
     import urllib.parse
     encoded_query = urllib.parse.quote(query)
-    url = f"https://api.github.com/search/repositories?q={encoded_query}&sort=stars&order=desc"
+    url = f"https://api.github.com/search/repositories?q={encoded_query}"
     req = urllib.request.Request(url, headers={'User-Agent': 'Antigravity-Agent'})
     try:
         with urllib.request.urlopen(req) as response:
@@ -14,7 +14,7 @@ def fetch_github_skills(query="agentic skills OR mcp server OR multi-agent frame
             results = []
             for item in items[:10]: # Top 10 repositories
                 results.append({
-                    "name": item.get("full_name") or item.get("name"),
+                    "name": item.get("name"),
                     "url": item.get("html_url"),
                     "description": item.get("description") or "Нет описания."
                 })
@@ -25,11 +25,11 @@ def fetch_github_skills(query="agentic skills OR mcp server OR multi-agent frame
 
 def main():
     import sys
-    query = "google gemini OR google antigravity OR google ai studio OR agentic skills OR multi-agent framework"
-    if len(sys.argv) > 1 and sys.argv[1].strip():
+    query = "antigravity topic:ai-agents"
+    if len(sys.argv) > 1:
         query = " ".join(sys.argv[1:])
         
-    print(f"[*] Запуск разведки самосовершенствования ИИ, Google AI и внешних умений по запросу: {query}...")
+    print(f"[*] Запуск глобальной разведки внешних умений по запросу: {query}...")
     repos = fetch_github_skills(query)
     
     home = os.path.expanduser("~")
@@ -41,17 +41,18 @@ def main():
     with open(output_path, 'r', encoding='utf-8') as f:
         content = f.read()
         
+    # Split content at external section if exists, or append
     split_marker = "## 🌍 РЕКОМЕНДУЕМЫЕ ВНЕШНИЕ УМЕНИЯ (GITHUB)"
     if split_marker in content:
         content = content.split(split_marker)[0]
         
     new_section = f"{split_marker}\n"
-    new_section += f"> **Разведка самосовершенствования ИИ и релизов Google AI:** Автоматическое отслеживание новшеств Gemini 3.6+, Antigravity SDK, MCP-серверов и мульти-агентных систем.\n\n"
-    new_section += "| Репозиторий / Инструмент | Назначение / Полезность для ИИ-Архитектора | Ссылка на чертежи |\n"
+    new_section += f"> **Последняя разведка:** {urllib.request.urlopen('https://api.github.com').headers.get('Date') or 'Сегодня'}\n\n"
+    new_section += "| Название репозитория | Описание | Ссылка на чертежи |\n"
     new_section += "| :--- | :--- | :--- |\n"
     
     if repos:
-        for r in repos[:7]:
+        for r in repos:
             new_section += f"| **{r['name']}** | {r['description']} | [{r['url']}]({r['url']}) |\n"
     else:
         new_section += "| **Очередь пуста** | Новых репозиториев не обнаружено | - |\n"

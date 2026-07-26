@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys, py_compile
 
-SCRIPTS_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts"
+SCRIPTS_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts")
 
 AGENTS = [
     {"name": "skills_scout.py", "role": "Фоновый Скаут Новых Умений & Ревизор ДНК"},

@@ -32,13 +32,13 @@ def audit_search_path(search_path: str, max_depth: int = 2) -> bool:
 def run_path_and_quote_guard() -> dict:
     """Запуск сторожа санитарного аудита путей."""
     test_paths = [
-        'os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/test.md"',
-        '\\os.path.join(os.path.expanduser("~"), "test.py\\"',
-        os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/'
+        'os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/test.md")',
+        '\\os.path.join(os.path.expanduser("~"), "test.py\\")',
+        os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/")
     ]
     sanitized = [sanitize_filepath(p) for p in test_paths]
     return {
-        "status": "GREEN_NORMAL",
+        ")status": "GREEN_NORMAL",
         "tested_paths": len(test_paths),
         "sanitized_sample": sanitized[0]
     }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys, time
 
-SCRIPTS_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts"
+SCRIPTS_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts")
 if SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, SCRIPTS_DIR)
 
@@ -113,7 +113,7 @@ def run_unified_bureau_guards(brain_folder, active_cabin="МАСТЕР_КАБИ�
     return results
 
 if __name__ == "__main__":
-    b_folder = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/92f3f6f7-7f47-44fc-92e9-0ee82cb9e441"
+    b_folder = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/92f3f6f7-7f47-44fc-92e9-0ee82cb9e441")
     cabin = sys.argv[2] if len(sys.argv) > 2 else "МАСТЕР_КАБИНА"
     res = run_unified_bureau_guards(b_folder, cabin)
     

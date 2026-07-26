@@ -1,7 +1,7 @@
 import os
 import json
 
-BRAIN_DIR = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain'
+BRAIN_DIR = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain")
 
 def get_latest_chat_id():
     try:
@@ -32,7 +32,7 @@ def truncate_log_file(chat_id, filename, keep_count):
         try:
             data = json.loads(line)
             data['step_index'] = idx + 1
-            new_lines.append(json.dumps(data, ensure_ascii=False) + "\n")
+            new_lines.append(json.dumps(data, ensure_ascii=False) + ")\n")
         except Exception:
             new_lines.append(line)
             

@@ -31,7 +31,7 @@ def audit_agenda_focus(agenda_path: str) -> dict:
 def run_focus_drift_guard(agenda_path: str = None) -> dict:
     """Главная точка входа сторожа фокуса."""
     if not agenda_path:
-        agenda_path = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/03_БОРТОВОЙ_КАРАВАН/ПОВЕСТКА_ПЛАНЕРКИ.md"
+        agenda_path = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/03_БОРТОВОЙ_КАРАВАН/ПОВЕСТКА_ПЛАНЕРКИ.md")
     return audit_agenda_focus(agenda_path)
 
 if __name__ == "__main__":

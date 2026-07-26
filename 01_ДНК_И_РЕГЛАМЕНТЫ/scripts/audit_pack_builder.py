@@ -9,9 +9,9 @@ import os
 import sys
 import zipfile
 
-MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
-SKILLS_DIR = os.path.join(os.path.expanduser("~"), ".gemini/config/plugins/lego-architect-plugin/skills"
-DESKTOP_OUTPUT_ZIP = os.path.join(os.path.expanduser("~"), "Desktop/BUREAU_FULL_AUDIT_PACK_2026.zip"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»")
+SKILLS_DIR = os.path.join(os.path.expanduser("~"), ".gemini/config/plugins/lego-architect-plugin/skills")
+DESKTOP_OUTPUT_ZIP = os.path.join(os.path.expanduser("~"), "Desktop/BUREAU_FULL_AUDIT_PACK_2026.zip")
 DRIVE_OUTPUT_ZIP = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/BUREAU_FULL_AUDIT_PACK_2026.zip")
 
 def build_audit_package() -> dict:
