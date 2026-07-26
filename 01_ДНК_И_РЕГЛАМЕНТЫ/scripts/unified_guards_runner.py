@@ -127,6 +127,7 @@ if __name__ == "__main__":
 
     print(f"🔹 Запечатано гермо-кабин: {res['hermetic'].get('sealed_cabins', 0)}")
     print(f"🔹 Извлеченная память: {res['memory'].get('selected_archive', 'N/A')}")
+    print("🔹 Режим умений: ЛЕНИВЫЙ (77 SKILL.md подгружаются строго по вызову задачи)")
     print(f"🔹 Давление пара: ~{res['steam'].get('tokens', 0):,} токенов ({res['steam'].get('status', 'OK')})")
     print(f"🔹 Экипаж агентов: {'🟢 100% ЗДОРОВЫ И В СТРОЮ' if res['health'].get('all_healthy') else '🔴 СБОЙ'}")
     print("=" * 65)

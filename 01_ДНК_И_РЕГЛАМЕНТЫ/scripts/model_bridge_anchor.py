@@ -25,15 +25,25 @@ MODEL_CALIBRATION_SPEC = {
 }
 
 def generate_model_calibration_anchor(output_path: str = None) -> dict:
-    """Генерирует якорный паспорт соосности ИИ-мотора."""
+    """Генерирует якорный паспорт соосности ИИ-мотора и ведет журнал присяги."""
     if not output_path:
         output_path = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/model_anchor.json")
+    
+    log_path = os.path.join(os.path.dirname(output_path), "model_anchor_log.txt")
     
     try:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(MODEL_CALIBRATION_SPEC, f, ensure_ascii=False, indent=2)
-        return {"status": "GREEN_NORMAL", "path": output_path, "laws_count": len(MODEL_CALIBRATION_SPEC["core_laws"])}
+        
+        # Log model calibration oath
+        import datetime
+        now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        log_entry = f"{now_str} | Модель: ИИ-Архитектор | Присяга: ПРИНЯТА | Законов ДНК: {len(MODEL_CALIBRATION_SPEC['core_laws'])}/5 | Статус: 🟢\n"
+        with open(log_path, 'a', encoding='utf-8') as lf:
+            lf.write(log_entry)
+            
+        return {"status": "GREEN_NORMAL", "path": output_path, "log": log_path, "laws_count": len(MODEL_CALIBRATION_SPEC["core_laws"])}
     except Exception as e:
         return {"status": "ERROR", "error": str(e)}
 

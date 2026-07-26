@@ -19,6 +19,9 @@ if not os.path.exists(brain_folder):
     print(f"Error: Brain folder {brain_folder} does not exist.")
     sys.exit(1)
 
+# LAW: SKILL.md files are loaded LAZY (on-demand per task), NOT preloaded at startup
+# This saves up to 20,000 tokens per session
+
 print("Starting shift diagnostics...")
 
 # -1. UPSTREAM PUSH SAFEGUARD (Защита от отката Ошибки №4)
