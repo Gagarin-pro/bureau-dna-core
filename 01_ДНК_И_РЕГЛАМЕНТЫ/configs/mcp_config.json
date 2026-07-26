@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "ssh",
+      "args": [
+        "-i",
+        "/Users/tur/.gemini/config/google_compute_engine",
+        "-q",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=/dev/null",
+        "-o",
+        "IdentitiesOnly=yes",
+        "tur@35.229.90.22",
+        "/home/tur/start_postgres_mcp.sh"
+      ],
+      "env": {
+        "PATH": "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin"
+      }
+    },
+    "docker": {
+      "command": "/opt/homebrew/bin/mcp-docker-server",
+      "args": [],
+      "env": {
+        "DOCKER_HOST": "ssh://tur@35.229.90.22",
+        "DOCKER_SSHOPTS": "-i /Users/tur/.gemini/config/google_compute_engine -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes",
+        "PATH": "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin"
+      }
+    }
+  }
+}
