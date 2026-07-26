@@ -365,8 +365,10 @@ if os.path.isdir(brain_folder):
     safe_copy(source_agenda_master, b_target_agenda)
     with open(b_target_dialog + ".metadata.json", "w", encoding="utf-8") as f:
         json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Рабочий интерактивный диалог с КВС Юрием."}, f, indent=2, ensure_ascii=False)
+    with open(b_target_dash + ".metadata.json", "w", encoding="utf-8") as f:
+        json.dump({"UserFacing": True, "RequestFeedback": False, "Summary": "Интерактивный пульт управления Бюро."}, f, indent=2, ensure_ascii=False)
     with open(b_target_agenda + ".metadata.json", "w", encoding="utf-8") as f:
-        json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Повестка и решения планерки с КВС Юрием."}, f, indent=2, ensure_ascii=False)
+        json.dump({"UserFacing": True, "RequestFeedback": False, "Summary": "Повестка и решения планерки с КВС Юрием."}, f, indent=2, ensure_ascii=False)
 
 # Copy ПРАВИЛА_ВЗАИМОКОНТРОЛЯ_И_ТЕМПА.md
 source_tempo_path = os.path.join(MASTER_DIR, "01_ДНК_И_РЕГЛАМЕНТЫ/ПРАВИЛА_ВЗАИМОКОНТРОЛЯ_И_ТЕМПА.md")
