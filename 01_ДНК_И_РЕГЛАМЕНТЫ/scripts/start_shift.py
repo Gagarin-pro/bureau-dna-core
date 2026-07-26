@@ -355,20 +355,18 @@ if safe_copy(source_errors_path, target_errors_path):
 source_dialog_path = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/РАБОЧИЙ_ДИАЛОГ.md")
 source_dash_path = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/autonomous_bureau_dashboard.md")
 source_agenda_master = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/ПОВЕСТКА_ПЛАНЕРКИ.md")
-# Sync РАБОЧИЙ_ДИАЛОГ.md, autonomous_bureau_dashboard.md, and ПОВЕСТКА_ПЛАНЕРКИ.md to all brain directories for Electron GUI consistency
-all_brain_dirs = glob.glob(os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/*"))
-for b_dir in all_brain_dirs:
-    if os.path.isdir(b_dir):
-        b_target_dialog = os.path.join(b_dir, "РАБОЧИЙ_ДИАЛОГ.md")
-        b_target_dash = os.path.join(b_dir, "autonomous_bureau_dashboard.md")
-        b_target_agenda = os.path.join(b_dir, "ПОВЕСТКА_ПЛАНЕРКИ.md")
-        safe_copy(source_dialog_path, b_target_dialog)
-        safe_copy(source_dash_path, b_target_dash)
-        safe_copy(source_agenda_master, b_target_agenda)
-        with open(b_target_dialog + ".metadata.json", "w", encoding="utf-8") as f:
-            json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Рабочий интерактивный диалог с КВС Юрием."}, f, indent=2, ensure_ascii=False)
-        with open(b_target_agenda + ".metadata.json", "w", encoding="utf-8") as f:
-            json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Повестка и решения планерки с КВС Юрием."}, f, indent=2, ensure_ascii=False)
+# Sync РАБОЧИЙ_ДИАЛОГ.md, autonomous_bureau_dashboard.md, and ПОВЕСТКА_ПЛАНЕРКИ.md ONLY to active brain_folder
+if os.path.isdir(brain_folder):
+    b_target_dialog = os.path.join(brain_folder, "РАБОЧИЙ_ДИАЛОГ.md")
+    b_target_dash = os.path.join(brain_folder, "autonomous_bureau_dashboard.md")
+    b_target_agenda = os.path.join(brain_folder, "ПОВЕСТКА_ПЛАНЕРКИ.md")
+    safe_copy(source_dialog_path, b_target_dialog)
+    safe_copy(source_dash_path, b_target_dash)
+    safe_copy(source_agenda_master, b_target_agenda)
+    with open(b_target_dialog + ".metadata.json", "w", encoding="utf-8") as f:
+        json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Рабочий интерактивный диалог с КВС Юрием."}, f, indent=2, ensure_ascii=False)
+    with open(b_target_agenda + ".metadata.json", "w", encoding="utf-8") as f:
+        json.dump({"UserFacing": True, "RequestFeedback": True, "Summary": "Повестка и решения планерки с КВС Юрием."}, f, indent=2, ensure_ascii=False)
 
 # Copy ПРАВИЛА_ВЗАИМОКОНТРОЛЯ_И_ТЕМПА.md
 source_tempo_path = os.path.join(MASTER_DIR, "01_ДНК_И_РЕГЛАМЕНТЫ/ПРАВИЛА_ВЗАИМОКОНТРОЛЯ_И_ТЕМПА.md")

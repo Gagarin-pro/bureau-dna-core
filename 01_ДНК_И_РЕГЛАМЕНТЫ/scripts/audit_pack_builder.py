@@ -15,7 +15,20 @@ DESKTOP_OUTPUT_ZIP = os.path.join(os.path.expanduser("~"), "Desktop/BUREAU_FULL_
 DRIVE_OUTPUT_ZIP = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/BUREAU_FULL_AUDIT_PACK_2026.zip")
 
 def build_audit_package() -> dict:
-    """Формирует сжатый аудиторский архив для Google Jules и AI Studio."""
+    """Формирует сжатый аудиторский архив для Google Jules и AI Studio (с умным кэшированием на 10 мин)."""
+    import time
+    if os.path.exists(DESKTOP_OUTPUT_ZIP):
+        mtime = os.path.getmtime(DESKTOP_OUTPUT_ZIP)
+        if time.time() - mtime < 600:  # 10 minutes cache
+            zip_size_kb = round(os.path.getsize(DESKTOP_OUTPUT_ZIP) / 1024, 2)
+            return {
+                "status": "GREEN_NORMAL",
+                "zip_desktop": DESKTOP_OUTPUT_ZIP,
+                "zip_drive": DRIVE_OUTPUT_ZIP,
+                "size_kb": zip_size_kb,
+                "cached": True
+            }
+
     files_to_pack = []
     
     # 1. ДНК и Скрипты
