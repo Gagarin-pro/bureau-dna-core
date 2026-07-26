@@ -1,6 +1,6 @@
 import os, sys, re
 
-MASTER_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
 
 def verify_4window_parity(brain_folder, active_cabin="МАСТЕР_КАБИНА"):
     cabin_path = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/ACTIVE_CABIN.txt")

@@ -1,7 +1,7 @@
 import os
 import json
 
-BRAIN_DIR = '/Users/tur/.gemini/antigravity/brain'
+BRAIN_DIR = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain'
 
 def get_latest_chat_id():
     try:

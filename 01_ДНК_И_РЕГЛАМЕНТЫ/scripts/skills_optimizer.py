@@ -1,8 +1,8 @@
 import os, sys, glob
 
 def optimize_all_skills():
-    plugin_skills_dir = "/Users/tur/.gemini/config/plugins"
-    local_skills_dir = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/skills"
+    plugin_skills_dir = os.path.join(os.path.expanduser("~"), ".gemini/config/plugins"
+    local_skills_dir = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/skills"
     
     skill_files = glob.glob(f"{plugin_skills_dir}/**/SKILL.md", recursive=True)
     if os.path.exists(local_skills_dir):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys, glob, json, py_compile
 
-MASTER_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
 
 def run_preflight_safety_audit(brain_folder):
     audit_report = {
@@ -78,7 +78,7 @@ def run_preflight_safety_audit(brain_folder):
     return audit_report
 
 if __name__ == "__main__":
-    b_folder = sys.argv[1] if len(sys.argv) > 1 else "/Users/tur/.gemini/antigravity/brain/0da27aa8-677c-4f54-861f-ffdd00c2f983"
+    b_folder = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/0da27aa8-677c-4f54-861f-ffdd00c2f983"
     res = run_preflight_safety_audit(b_folder)
     print("=" * 60)
     print("🚀 СУПЕР-РЕАКТИВНЫЙ МОТОР v3.0 (preflight_safety_guard.py)")

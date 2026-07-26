@@ -1,6 +1,6 @@
 import os, sys, shutil
 
-CONSTITUTION_FILE = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/АВТОНОМНОЕ_БЮРО_ПРОЕКТИРОВАНИЯ.md"
+CONSTITUTION_FILE = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/АВТОНОМНОЕ_БЮРО_ПРОЕКТИРОВАНИЯ.md"
 
 FULL_MONUMENTAL_CONSTITUTION = """# 🧱 РЕГЛАМЕНТИРУЮЩАЯ КОНСТИТУЦИЯ: АВТОНОМНОЕ БЮРО ПРОЕКТИРОВАНИЯ (CONSTRUCTOR-ARCHITECT PRO)
 > **Концепт-регламент человеко-машинного симбиоза** | Версия 3.0 (Монументальный Мастер-Релиз 2026) от 24 июля 2026

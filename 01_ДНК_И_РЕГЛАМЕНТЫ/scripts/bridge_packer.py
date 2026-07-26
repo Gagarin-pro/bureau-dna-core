@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys, shutil, datetime
 
-MASTER_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
 CARAVAN_DIR = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН")
 
 def pack_bridge_for_new_chat(brain_folder, active_topic="Единая Настройка Мастер-Кабины V3.0", entry_cube="Продолжение смены по наряду КВС"):
@@ -41,7 +41,7 @@ def pack_bridge_for_new_chat(brain_folder, active_topic="Единая Настр
     return {"bridge_brain": bridge_path_brain, "bridge_caravan": bridge_path_caravan}
 
 if __name__ == "__main__":
-    brain = sys.argv[1] if len(sys.argv) > 1 else "/Users/tur/.gemini/antigravity/brain/92f3f6f7-7f47-44fc-92e9-0ee82cb9e441"
+    brain = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/92f3f6f7-7f47-44fc-92e9-0ee82cb9e441"
     res = pack_bridge_for_new_chat(brain)
     print("=" * 60)
     print("🌉 УПАКОВКА ПЕРЕХОДНОГО МОСТА В НОВЫЙ ЧАТ (bridge_packer.py)")

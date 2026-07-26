@@ -1,7 +1,7 @@
 import os, sys, re
 
-MASTER_TEMPLATE = "/Users/tur/.gemini/config/autonomous_bureau_dashboard_master.md"
-MASTER_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
+MASTER_TEMPLATE = os.path.join(os.path.expanduser("~"), ".gemini/config/autonomous_bureau_dashboard_master.md"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
 
 CLEAN_MASTER_CONTENT = """# 🧱 АВТОНОМНОЕ БЮРО ПРОЕКТИРОВАНИЯ — ПАНЕЛЬ УПРАВЛЕНИЯ
 > **Версия панели:** 3.1 (Очищенный Мастер-Релиз) | **Дата:** 24 июля 2026 | **Генеральный Конструктор:** Юрий

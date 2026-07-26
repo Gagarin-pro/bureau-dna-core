@@ -16,7 +16,7 @@ import urllib.error
 from datetime import datetime
 
 # Configuration of targets
-BASE_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/03_БОРТОВОЙ_КАРАВАН"
+BASE_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/03_БОРТОВОЙ_КАРАВАН"
 SHIFT_JOURNAL_RU_PATH = os.path.join(BASE_DIR, "СМЕННЫЙ_ЖУРНАЛ.md")
 SHIFT_LOG_EN_PATH = os.path.join(BASE_DIR, "SHIFT_LOG.md")
 SHIFT_TRAILER_RU_PATH = os.path.join(BASE_DIR, "СМЕННЫЙ_ПРИЦЕП.md")
@@ -51,7 +51,7 @@ def get_gemini_api_key():
             pass
 
     # 3. Check Monolith backend .env file fallback
-    env_path = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/06_ЦЕХ_МОНОЛИТ/backend/.env"
+    env_path = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/06_ЦЕХ_МОНОЛИТ/backend/.env"
     if os.path.exists(env_path):
         try:
             with open(env_path, "r", encoding="utf-8") as f:
@@ -66,7 +66,7 @@ def get_gemini_api_key():
     return None
 
 def find_latest_transcript():
-    pattern = "/Users/tur/.gemini/antigravity/brain/*/.system_generated/logs/transcript.jsonl"
+    pattern = os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/*/.system_generated/logs/transcript.jsonl"
     files = glob.glob(pattern)
     if not files:
         raise FileNotFoundError("Не найден ни один файл transcript.jsonl в каталогах /Users/tur/.gemini/antigravity/brain/*/")

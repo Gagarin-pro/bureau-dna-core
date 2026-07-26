@@ -6,8 +6,8 @@ import json
 import time
 import glob
 
-MASTER_DIR = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
-MASTER_TEMPLATE_PATH = "/Users/tur/.gemini/config/autonomous_bureau_dashboard_master.md"
+MASTER_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»"
+MASTER_TEMPLATE_PATH = os.path.join(os.path.expanduser("~"), ".gemini/config/autonomous_bureau_dashboard_master.md"
 
 if len(sys.argv) < 2:
     print("Usage: python3 start_shift.py <brain_folder_path> [CABIN_NAME]")
@@ -51,7 +51,7 @@ elif os.path.exists(active_cabin_path):
 
 # 0. Run Unified Bureau Guards Engine (unified_guards_runner.py)
 try:
-    unified_runner = "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts/unified_guards_runner.py"
+    unified_runner = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Автошкола ИИ/«LEGO-ARCHITECT PRO»/01_ДНК_И_РЕГЛАМЕНТЫ/scripts/unified_guards_runner.py"
     if os.path.exists(unified_runner):
         subprocess.run([sys.executable, unified_runner, brain_folder, active_cabin_early], check=False)
 except Exception as e:
@@ -70,8 +70,8 @@ except Exception:
 if not bridge_running:
     print("Gagarin Bridge is offline. Launching automatically in background...")
     try:
-        venv_python = "/Users/tur/Desktop/ИИ_ОКРУЖЕНИЕ/notebook_lm_school/.venv/bin/python3"
-        script_path = "/Users/tur/Desktop/ИИ_ОКРУЖЕНИЕ/notebook_lm_school/gagarin_bridge_v2/gagarin_bridge.py"
+        venv_python = os.path.join(os.path.expanduser("~"), "Desktop/ИИ_ОКРУЖЕНИЕ/notebook_lm_school/.venv/bin/python3"
+        script_path = os.path.join(os.path.expanduser("~"), "Desktop/ИИ_ОКРУЖЕНИЕ/notebook_lm_school/gagarin_bridge_v2/gagarin_bridge.py"
         if os.path.exists(venv_python) and os.path.exists(script_path):
             subprocess.Popen([venv_python, script_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
             time.sleep(1.5)  # Wait for process initialization
@@ -187,13 +187,13 @@ else:
 CABIN_DIRS = {
     "МАСТЕР_КАБИНА": os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН"),
     "BUREAU_SETUP": os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН"),
-    "BUKVITSA_BOT": "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Буквица-бот",
+    "BUKVITSA_BOT": os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Буквица-бот",
     "MONOLITH": os.path.join(MASTER_DIR, "06_ЦЕХ_МОНОЛИТ"),
     "MONOLITH_CEH": os.path.join(MASTER_DIR, "06_ЦЕХ_МОНОЛИТ"),
     "COURT_CASE": os.path.join(MASTER_DIR, "08_ЛИЧНЫЙ_КАРАВАН"),
     "AUTOSCHOOL": os.path.join(MASTER_DIR, "02_ЦЕХ_ГАГАРИН"),
     "GAGARIN_OS": os.path.join(MASTER_DIR, "02_ЦЕХ_ГАГАРИН"),
-    "AI_STUDIO_RD": "/Users/tur/Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Google AI Studio — База R&D",
+    "AI_STUDIO_RD": os.path.join(os.path.expanduser("~"), "Library/CloudStorage/GoogleDrive-n3804590@gmail.com/Мой диск/iT технологии/AI_Studio/Google AI Studio — База R&D",
     "VPN_REALITY": os.path.join(MASTER_DIR, "01_ДНК_И_РЕГЛАМЕНТЫ"),
 }
 
@@ -356,7 +356,7 @@ source_dialog_path = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВА�
 source_dash_path = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/autonomous_bureau_dashboard.md")
 source_agenda_master = os.path.join(MASTER_DIR, "03_БОРТОВОЙ_КАРАВАН/ПОВЕСТКА_ПЛАНЕРКИ.md")
 # Sync РАБОЧИЙ_ДИАЛОГ.md, autonomous_bureau_dashboard.md, and ПОВЕСТКА_ПЛАНЕРКИ.md to all brain directories for Electron GUI consistency
-all_brain_dirs = glob.glob("/Users/tur/.gemini/antigravity/brain/*")
+all_brain_dirs = glob.glob(os.path.join(os.path.expanduser("~"), ".gemini/antigravity/brain/*")
 for b_dir in all_brain_dirs:
     if os.path.isdir(b_dir):
         b_target_dialog = os.path.join(b_dir, "РАБОЧИЙ_ДИАЛОГ.md")
@@ -406,7 +406,7 @@ if os.path.exists(bridge_file_src):
 
 # 9. Auto-fix SSH_AUTH_SOCK in mcp_config.json
 try:
-    mcp_config_path = "/Users/tur/.gemini/config/mcp_config.json"
+    mcp_config_path = os.path.join(os.path.expanduser("~"), ".gemini/config/mcp_config.json"
     current_ssh_auth = os.environ.get("SSH_AUTH_SOCK")
     if current_ssh_auth and os.path.exists(mcp_config_path):
         with open(mcp_config_path, "r", encoding="utf-8") as mcp_f:
